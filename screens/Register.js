@@ -10,13 +10,11 @@ import {
   Platform,
 } from "react-native";
 import Logo from "../assets/logo.svg";
-import { COLORS, FUENTE } from "../components/Theme"; // <--- Importa aquí
-import { useNavigation } from "@react-navigation/native";
+import { COLORS, FUENTE } from "../components/Theme";
 
-export default function Login() {
-  const navigation = useNavigation();
+export default function Register({ navigation }) {
   const [buttonAnim] = useState(new Animated.Value(1));
-  const [inputFocus, setInputFocus] = useState({ user: false, pass: false });
+  const [inputFocus, setInputFocus] = useState({ user: false, email: false, pass: false });
 
   const handlePressIn = () => {
     Animated.spring(buttonAnim, {
@@ -39,24 +37,22 @@ export default function Login() {
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : undefined}
     >
-      {/* Fondo decorativo */}
       <View style={styles.bgCircleYellow} />
       <View style={styles.bgCircleBlue} />
 
-      {/* Logo */}
       <View style={styles.logoContainer}>
         <Logo width={110} height={110} />
       </View>
 
       <View style={styles.formContainer}>
-        <Text style={styles.title}>Bienvenido</Text>
-        <Text style={styles.subtitle}>Inicia sesión para continuar</Text>
+        <Text style={styles.title}>Crear cuenta</Text>
+        <Text style={styles.subtitle}>Regístrate para continuar</Text>
         <TextInput
           style={[
             styles.input,
             inputFocus.user && {
-              borderColor: "#ffc825",
-              backgroundColor: "#fff",
+              borderColor: COLORS.amarillo,
+              backgroundColor: COLORS.blanco,
             },
           ]}
           placeholder="Usuario"
@@ -67,9 +63,23 @@ export default function Login() {
         <TextInput
           style={[
             styles.input,
+            inputFocus.email && {
+              borderColor: COLORS.amarillo,
+              backgroundColor: COLORS.blanco,
+            },
+          ]}
+          placeholder="Correo electrónico"
+          placeholderTextColor="#03132d99"
+          keyboardType="email-address"
+          onFocus={() => setInputFocus((f) => ({ ...f, email: true }))}
+          onBlur={() => setInputFocus((f) => ({ ...f, email: false }))}
+        />
+        <TextInput
+          style={[
+            styles.input,
             inputFocus.pass && {
-              borderColor: "#ffc825",
-              backgroundColor: "#fff",
+              borderColor: COLORS.amarillo,
+              backgroundColor: COLORS.blanco,
             },
           ]}
           placeholder="Contraseña"
@@ -85,18 +95,15 @@ export default function Login() {
             activeOpacity={0.8}
             onPressIn={handlePressIn}
             onPressOut={handlePressOut}
-            onPress={() => navigation.navigate("Home")} // <--- Navega al Home
           >
-            <Text style={styles.buttonText}>Ingresar</Text>
+            <Text style={styles.buttonText}>Registrarse</Text>
           </TouchableOpacity>
         </Animated.View>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Register")}
-          style={{ marginTop: 18 }}
-        >
-          <Text
-            style={{ color: COLORS.amarillo, fontWeight: "bold" }}
-          >{`¿No tienes cuenta? Regístrate aquí`}</Text>
+
+        <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginTop: 18 }}>
+          <Text style={{ color: COLORS.amarillo, fontWeight: "bold" }}>
+            ¿Ya tienes cuenta? Inicia sesión
+          </Text>
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
@@ -156,7 +163,7 @@ const styles = StyleSheet.create({
   formContainer: {
     marginTop: 40,
     width: "85%",
-    backgroundColor: COLORS.azulOscuro + "CC", // Opacidad
+    backgroundColor: COLORS.azulOscuro + "CC",
     borderRadius: 24,
     padding: 28,
     alignItems: "center",

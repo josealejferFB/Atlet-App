@@ -7,6 +7,8 @@ import SplashScreen from "./screens/SplashScreen"; // Importa la SplashScreen
 import Login from "./screens/Login";
 import Home from "./screens/Home";
 import Detalles from "./screens/Detalles";
+import Register from "./screens/Register";
+import Profile from "./screens/Profile";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +34,16 @@ export default function App() {
         <Stack.Screen
           name="Detalles"
           component={Detalles}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Register"
+          component={Register}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
