@@ -9,6 +9,7 @@ import Home from "./screens/Home";
 import Detalles from "./screens/Detalles";
 import Register from "./screens/Register";
 import Profile from "./screens/Profile";
+import RegisterCar from "./screens/RegisterCar";
 
 const Stack = createNativeStackNavigator();
 
@@ -44,6 +45,11 @@ export default function App() {
         <Stack.Screen
           name="Profile"
           component={Profile}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="RegisterCar"
+          component={RegisterCar}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

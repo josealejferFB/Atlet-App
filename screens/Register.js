@@ -56,6 +56,14 @@ export default function Register({ navigation }) {
     }
   };
 
+  const handleRegister = () => {
+    if (tipoCuenta === "conductor") {
+      navigation.replace("RegisterCar");
+    } else {
+      navigation.replace("Home");
+    }
+  };
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -215,6 +223,7 @@ export default function Register({ navigation }) {
               activeOpacity={0.8}
               onPressIn={handlePressIn}
               onPressOut={handlePressOut}
+              onPress={handleRegister}
             >
               <Text style={styles.buttonText}>Registrarse</Text>
             </TouchableOpacity>
