@@ -8,14 +8,12 @@ const { width, height } = Dimensions.get('window');
 export default function SplashScreen() {
   const navigation = useNavigation();
 
-  // Animaciones
   const logoScale = useRef(new Animated.Value(0)).current;
   const logoRotate = useRef(new Animated.Value(0)).current;
   const logoBounce = useRef(new Animated.Value(0)).current;
   const bgCircle = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    // Animación del logo: escala, rotación y rebote
     Animated.parallel([
       Animated.spring(logoScale, {
         toValue: 1.2,
@@ -25,49 +23,45 @@ export default function SplashScreen() {
       }),
       Animated.timing(logoRotate, {
         toValue: 1,
-        duration: 3000,
+        duration: 1800, // Menos vueltas y más rápido
         easing: Easing.elastic(1.2),
         useNativeDriver: true,
       }),
       Animated.sequence([
         Animated.timing(logoBounce, {
           toValue: -30,
-          duration: 800,
+          duration: 500,
           easing: Easing.bounce,
           useNativeDriver: true,
         }),
         Animated.timing(logoBounce, {
           toValue: 0,
-          duration: 800,
+          duration: 500,
           easing: Easing.bounce,
           useNativeDriver: true,
         }),
       ]),
-      // El círculo de fondo ahora tarda más en cubrir la pantalla (empieza después de 2.5s)
       Animated.timing(bgCircle, {
         toValue: 1,
-        duration: 3500,
-        delay: 2500,
+        duration: 1800,
+        delay: 1200,
         easing: Easing.out(Easing.exp),
         useNativeDriver: false,
       }),
     ]).start();
 
-    // Navegar al Login después de 7 segundos
     const timeout = setTimeout(() => {
-      navigation.replace('Login');
-    }, 7000);
+      navigation.replace('Home');
+    }, 4000);
 
     return () => clearTimeout(timeout);
   }, []);
 
-  // Interpolaciones
   const rotate = logoRotate.interpolate({
     inputRange: [0, 1],
-    outputRange: ['0deg', '720deg'],
+    outputRange: ['0deg', '360deg'], // Solo una vuelta
   });
 
-  // Animación del círculo de fondo
   const circleSize = bgCircle.interpolate({
     inputRange: [0, 1],
     outputRange: [0, Math.max(width, height) * 2],
