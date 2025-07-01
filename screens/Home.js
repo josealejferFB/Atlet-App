@@ -14,6 +14,7 @@ import { COLORS, FUENTE } from "../components/Theme";
 import { MaterialIcons, FontAwesome5, Ionicons, Feather } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import BottomBar from "../components/BottomBar";
+import Logo from "../assets/logo.svg";
 
 const user = {
   nombre: "José",
@@ -71,7 +72,9 @@ export default function Home({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {/* Mapa */}
+      <View style={styles.header}>
+        <Logo width={64} height={64} style={{ alignSelf: "center" }} />
+      </View>
       <View style={styles.mapContainer}>
         {Platform.OS === "web" ? (
           <View style={[styles.map, { alignItems: "center", justifyContent: "center" }]}>
@@ -110,7 +113,6 @@ export default function Home({ navigation }) {
             </MapView>
           )
         )}
-        {/* Barra de búsqueda de destino */}
         <TouchableOpacity
           style={styles.searchBar}
           onPress={() => navigation.navigate("SeleccionDestino")}
@@ -118,7 +120,6 @@ export default function Home({ navigation }) {
           <Feather name="search" size={22} color={COLORS.azulOscuro} />
           <Text style={styles.searchText}>¿A dónde vamos?</Text>
         </TouchableOpacity>
-        {/* Tarjeta de viaje en curso */}
         {viajeEnCurso && (
           <View style={styles.viajeCard}>
             <Image source={{ uri: viajeEnCurso.avatar }} style={styles.viajeAvatar} />
@@ -132,7 +133,6 @@ export default function Home({ navigation }) {
             </TouchableOpacity>
           </View>
         )}
-        {/* Botón flotante de solicitar viaje */}
         <TouchableOpacity
           style={styles.fab}
           onPress={() => navigation.navigate("SeleccionDestino")}
@@ -146,7 +146,7 @@ export default function Home({ navigation }) {
   );
 }
 
-const { width } = Dimensions.get("window");
+const { width, height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
@@ -155,16 +155,23 @@ const styles = StyleSheet.create({
     ...FUENTE,
     position: "relative",
   },
+  header: {
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 32,
+    marginBottom: 10,
+  },
   mapContainer: {
     width: "100%",
-    height: 750, // Tamaño grande del mapa
+    height: height * 0.65, // Más largo que antes, pero deja espacio para los botones
     position: "relative",
-    justifyContent: "center", // Centra verticalmente el contenido
-    alignItems: "center",     // Centra horizontalmente el contenido
+    justifyContent: "center",
+    alignItems: "center",
     zIndex: 1,
   },
   map: {
-    width: "95%", // Opcional: para que el mapa no llegue a los bordes
+    width: "95%",
     height: "100%",
     borderBottomLeftRadius: 32,
     borderBottomRightRadius: 32,
@@ -174,7 +181,7 @@ const styles = StyleSheet.create({
     top: 48,
     left: 24,
     right: 24,
-    backgroundColor: COLORS.blanco,
+    backgroundColor: COLORS.blancoSuave, // Cambiado a blanco suave
     borderRadius: 16,
     flexDirection: "row",
     alignItems: "center",
@@ -196,7 +203,7 @@ const styles = StyleSheet.create({
   },
   fab: {
     position: "absolute",
-    bottom: 32 + 70, // Encima de la barra de navegación
+    bottom: 32 + 70,
     alignSelf: "center",
     backgroundColor: COLORS.amarillo,
     flexDirection: "row",

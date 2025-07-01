@@ -290,7 +290,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: COLORS.blanco,
+    backgroundColor: COLORS.blancoSuave, // Cambiado a blanco suave
     borderRadius: 16,
     paddingHorizontal: 14,
     paddingVertical: 10,

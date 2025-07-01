@@ -124,13 +124,13 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   infoBox: {
-    backgroundColor: COLORS.azulOscuro, // Fondo azul oscuro
+    backgroundColor: COLORS.azulOscuro,
     borderRadius: 22,
     borderWidth: 2,
-    borderColor: COLORS.azulClaro,      // Borde azul claro
+    borderColor: COLORS.azulClaro,
     paddingVertical: 24,
     paddingHorizontal: 18,
-    width: "100%",
+    width: width * 0.94, // Igual que historial de viajes
     alignSelf: "center",
     marginTop: 16,
     marginBottom: 8,
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   infoTitle: {
-    color: COLORS.amarillo,             // Letras amarillas
+    color: COLORS.amarillo,
     fontWeight: "bold",
     fontSize: 20,
     marginBottom: 18,
@@ -191,6 +191,8 @@ const styles = StyleSheet.create({
     marginTop: 18,
     marginBottom: 0,
     alignSelf: "center",
+    width: width * 0.94, // Igual que historial de viajes
+    justifyContent: "center",
   },
   buttonText: {
     color: COLORS.azulOscuro,
@@ -202,6 +204,8 @@ const styles = StyleSheet.create({
     marginTop: 24,
     marginBottom: 8,
     alignItems: "center",
+    width: width * 0.94, // Igual que historial de viajes
+    alignSelf: "center",
   },
   linkText: {
     color: COLORS.amarillo,
@@ -210,17 +214,20 @@ const styles = StyleSheet.create({
     marginVertical: 2,
   },
   logoutBtn: {
-    backgroundColor: COLORS.azulOscuro, // Fondo azul oscuro
+    backgroundColor: COLORS.azulOscuro,
     borderRadius: 18,
     paddingVertical: 12,
     paddingHorizontal: 28,
     marginTop: 18,
     alignSelf: "center",
     borderWidth: 2,
-    borderColor: COLORS.azulClaro, // Borde azul claro
+    borderColor: COLORS.azulClaro,
+    width: width * 0.94, // Igual que historial de viajes
+    justifyContent: "center",
+    alignItems: "center",
   },
   logoutText: {
-    color: COLORS.azulClaro, // Texto azul claro para mejor contraste
+    color: COLORS.azulClaro,
     fontWeight: "bold",
     fontSize: 16,
   },

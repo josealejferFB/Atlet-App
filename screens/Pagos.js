@@ -91,7 +91,7 @@ export default function Pagos({ navigation }) {
         }
         ListFooterComponent={
           <View>
-            {/* Botón principal para añadir método */}
+
             {!mostrarOpciones && !mostrarFormularioTarjeta && !mostrarFormularioPaypal && (
               <TouchableOpacity style={styles.addBtn} onPress={() => setMostrarOpciones(true)}>
                 <Ionicons name="add-circle-outline" size={24} color={COLORS.amarillo} />
@@ -99,7 +99,7 @@ export default function Pagos({ navigation }) {
               </TouchableOpacity>
             )}
 
-            {/* Opciones de método */}
+
             {mostrarOpciones && !mostrarFormularioTarjeta && !mostrarFormularioPaypal && (
               <View style={styles.opcionesBox}>
                 <TouchableOpacity
@@ -131,7 +131,7 @@ export default function Pagos({ navigation }) {
               </View>
             )}
 
-            {/* Formulario para añadir nueva tarjeta */}
+
             {mostrarFormularioTarjeta && (
               <View style={styles.formulario}>
                 <Text style={styles.formTitle}>Añadir Tarjeta</Text>
@@ -181,7 +181,7 @@ export default function Pagos({ navigation }) {
               </View>
             )}
 
-            {/* Formulario para añadir PayPal */}
+
             {mostrarFormularioPaypal && (
               <View style={styles.formulario}>
                 <Text style={styles.formTitle}>Añadir PayPal</Text>
@@ -204,7 +204,7 @@ export default function Pagos({ navigation }) {
               </View>
             )}
 
-            <View style={{ height: 120 }} /> {/* Espacio para la BottomBar */}
+            <View style={{ height: 120 }} /> 
           </View>
         }
         contentContainerStyle={styles.scrollContent}
