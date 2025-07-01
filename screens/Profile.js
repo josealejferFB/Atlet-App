@@ -1,6 +1,9 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
+import BottomBar from "../components/BottomBar";
 import { COLORS, FUENTE } from "../components/Theme";
+
+const { width } = Dimensions.get("window");
 
 // Simulación de datos de usuario
 const user = {
@@ -9,7 +12,7 @@ const user = {
   avatar: "https://randomuser.me/api/portraits/men/32.jpg",
 };
 
-export default function Profile() {
+export default function Profile({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.avatarContainer}>
@@ -24,6 +27,8 @@ export default function Profile() {
         <Text style={styles.infoLabel}>Correo:</Text>
         <Text style={styles.infoValue}>{user.correo}</Text>
       </View>
+      <Text style={styles.title}>Perfil</Text>
+      <BottomBar navigation={navigation} active="Profile" />
     </View>
   );
 }
@@ -34,6 +39,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.azulOscuro,
     alignItems: "center",
     paddingTop: 60,
+    width: width, // Añade esto
     ...FUENTE,
   },
   avatarContainer: {
@@ -93,5 +99,11 @@ const styles = StyleSheet.create({
     color: COLORS.azulOscuro,
     marginBottom: 4,
     marginLeft: 8,
+  },
+  title: {
+    color: COLORS.amarillo,
+    fontSize: 24,
+    fontWeight: "bold",
+    margin: 24,
   },
 });

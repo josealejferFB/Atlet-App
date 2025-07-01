@@ -10,13 +10,21 @@ import Detalles from "./screens/Detalles";
 import Register from "./screens/Register";
 import Profile from "./screens/Profile";
 import RegisterCar from "./screens/RegisterCar";
+import HistorialViajes from "./screens/HistorialViajes";
+import SeleccionDestino from "./screens/SeleccionDestino";
+import Pagos from "./screens/Pagos";
+import Configuracion from "./screens/Configuracion";
+import ConfirmacionViaje from "./screens/ConfirmacionViaje";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Splash">
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{ headerShown: false }}
+      >
         <Stack.Screen
           name="Splash"
           component={SplashScreen}
@@ -50,6 +58,31 @@ export default function App() {
         <Stack.Screen
           name="RegisterCar"
           component={RegisterCar}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="HistorialViajes"
+          component={HistorialViajes}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SeleccionDestino"
+          component={SeleccionDestino}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Pagos"
+          component={Pagos}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Configuracion"
+          component={Configuracion}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ConfirmacionViaje"
+          component={ConfirmacionViaje}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
