@@ -15,6 +15,8 @@ import SeleccionDestino from "./screens/SeleccionDestino";
 import Pagos from "./screens/Pagos";
 import Configuracion from "./screens/Configuracion";
 import ConfirmacionViaje from "./screens/ConfirmacionViaje";
+import BusquedaConductor from "./screens/BusquedaConductor";
+import ViajeAsignado from "./screens/ViajeAsignado";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,7 +24,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="Splash" // Splash ahora es la pantalla inicial
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen
@@ -83,6 +85,16 @@ export default function App() {
         <Stack.Screen
           name="ConfirmacionViaje"
           component={ConfirmacionViaje}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="BusquedaConductor"
+          component={BusquedaConductor}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ViajeAsignado"
+          component={ViajeAsignado}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

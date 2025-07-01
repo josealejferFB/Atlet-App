@@ -119,10 +119,7 @@ export default function ConfirmacionViaje({ route, navigation }) {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.confirmBtn}
-          onPress={() => {
-            // Aquí iría la lógica para solicitar el viaje
-            navigation.replace("Home");
-          }}
+          onPress={() => navigation.replace("BusquedaConductor")}
         >
           <Text style={styles.confirmBtnText}>Solicitar ATLET</Text>
         </TouchableOpacity>
@@ -139,6 +136,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 18,
     width: width,
     ...FUENTE,
+    justifyContent: "center", // Centra verticalmente
   },
   title: {
     color: COLORS.amarillo,
@@ -194,8 +192,10 @@ const styles = StyleSheet.create({
   paymentRow: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: COLORS.azulClaro,
+    backgroundColor: COLORS.azulOscuro, // Fondo azul oscuro
     borderRadius: 12,
+    borderWidth: 2,
+    borderColor: COLORS.azulClaro,      // Borde azul claro
     paddingHorizontal: 14,
     paddingVertical: 10,
     marginTop: 10,
@@ -208,14 +208,16 @@ const styles = StyleSheet.create({
   },
   cancelBtn: {
     flex: 1,
-    backgroundColor: COLORS.azulClaro,
+    backgroundColor: COLORS.azulOscuro, // Fondo azul oscuro
     borderRadius: 18,
+    borderWidth: 2,
+    borderColor: COLORS.azulClaro,      // Borde azul claro
     paddingVertical: 14,
     alignItems: "center",
     marginRight: 8,
   },
   cancelBtnText: {
-    color: COLORS.blanco,
+    color: COLORS.azulClaro, // Texto azul claro para contraste
     fontWeight: "bold",
     fontSize: 16,
   },

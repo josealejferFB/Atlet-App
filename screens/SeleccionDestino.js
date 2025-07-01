@@ -318,8 +318,10 @@ const styles = StyleSheet.create({
   guardedItem: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: COLORS.azulClaro,
+    backgroundColor: COLORS.azulOscuro, // Fondo azul oscuro
     borderRadius: 12,
+    borderWidth: 2,
+    borderColor: COLORS.azulClaro,      // Borde azul claro
     paddingHorizontal: 14,
     paddingVertical: 8,
     marginRight: 10,
@@ -333,8 +335,10 @@ const styles = StyleSheet.create({
   addGuardedBtn: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: COLORS.azulClaro,
+    backgroundColor: COLORS.azulOscuro, // Fondo azul oscuro
     borderRadius: 12,
+    borderWidth: 2,
+    borderColor: COLORS.azulClaro,      // Borde azul claro
     padding: 10,
     marginBottom: 8,
     marginTop: 2,
